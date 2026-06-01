@@ -110,12 +110,12 @@ function preload() {
 
 //canvas and other stuff
 function setup() {
-  createCanvas(1500, 715);
+  createCanvas(1500, 1715);
   textFont(pressStart);
   textSize(16);
   console.log("Setup complete - p5.js is working!");
   // generate static planet placements once
-  planetRandomizer(15);
+  planetRandomizer(30);
 }
 
 //draw the ui and gameplay
@@ -123,7 +123,7 @@ function draw() {
   background(0);
   //image
   // map
-  image(space, 220, 75);
+ 
   // draw static planets placed at startup
   for (let p of placedPlanets) {
     if (p.img) image(p.img, p.x, p.y);
@@ -142,12 +142,13 @@ function draw() {
   textSize(16);
   fill(255);
   //credits
-  text("game and art by fuzzy_foxf", 10, 710);
+  text("game and art by fuzzy_foxf", 10, 750);
 
   //game info
   text("Points:" + pt, 10, 20);
   text("Points per capital:" + ptpc, 10, 40);
   text("production timer:" + ptpccd, 10, 60);
+  text("year:"+year,10,730)
 
   if (factions == 0) {
     // code to set the selected faction as the current faction
@@ -167,9 +168,16 @@ function draw() {
     if (ptpccd <= 0) {
       pt = pt + ptpc;
       ptpccd = ptpccdm;
+      year = year + 1
+      ageCheck();
     }
+
   }
   //planets and map (individual images should be drawn explicitly)
+  //year gain
+  
+  //age progression
+  //faction interactions and bonuses
 }
 
 //game interactions
@@ -202,6 +210,8 @@ function mousePressed() {
   ) {
     factions = 3;
   }
+  //planet claiming 
+
 }
 
 //faction selection
@@ -242,7 +252,7 @@ function factionSelect() {
 
 //planet randomization
 function planetRandomizer(count) {
-  // create `count` planet instances and store them for static drawing
+
   count = count || 8;
   placedPlanets = [];
   if (!planets || planets.length === 0) return;
@@ -253,5 +263,66 @@ function planetRandomizer(count) {
     let x = random(220, width - 50);
     let y = random(75, height - 50);
     placedPlanets.push({ img, x, y });
+    //need limeter 
+
+
   }
+}
+//the year system and age progression will be based on points and time.
+function progressAge1() {
+  // Implementation for age progression based on points and time
+  ages=1
+}
+function progressAge2() {
+
+  ages = 2;
+}
+
+function progressAge3() {
+
+  ages = 3;
+}
+
+function progressAge4() {
+
+  ages = 4;
+}
+function progressAge5(){
+  ages =5;
+}
+function progressAge6(){
+  ages = 6;
+}
+function progressAge7(){
+  ages = 7
+}
+function progressAge8(){
+  ages = 7
+}
+//check every 100 frames
+function ageCheck(){
+  if(year=2500){
+    progressAge1();
+  }
+  if (year = 2750) {
+    progressAge2();
+  }
+  if (year = 3000) {
+    progressAge3();
+  }
+  if (year=3250){
+    progressAge4();
+  }
+   if (year = 3500) {
+     progressAge5();
+   }
+   if (year = 3750) {
+     progressAge6();
+   }
+   if (year = 4000) {
+     progressAge7();
+   }
+   if (year = 4250) {
+     progressAge8();
+   }
 }
