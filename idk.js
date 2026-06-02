@@ -1,84 +1,3 @@
-//points/economy for player
-var pt = 0;
-//year
-var year = 2250;
-//points per capital
-var ptpc = 1;
-//point per capital upgrade cost
-var ptpcuc = 10;
-
-//point cooldown
-var ptpccd = 100;
-
-//cooldown max
-var ptpccdm = 100;
-
-//planets owned by player
-var waterPlanets = 0;
-var desertPlanets = 0;
-var icePlanets = 0;
-var gaiaPlanets = 0;
-//planets in image
-var wPlanets;
-var dPlanets;
-var iPlanets;
-var gPlanets;
-// will be populated in preload() after images load
-var planets = [];
-// placedPlanets will hold static planet instances drawn each frame
-var placedPlanets = [];
-
-//implimented  factions
-var notPlaying;
-
-var aztecGators;
-
-var romanWolfs;
-
-var cartageCrocs;
-//unimplimented factions
-
-var faction4;
-var faction5;
-var faction6;
-var faction7;
-var faction8;
-
-//list of factions
-var factionsList = [
-  notPlaying,
-  aztecGators,
-  romanWolfs,
-  cartageCrocs,
-  faction4,
-  faction5,
-  faction6,
-  faction7,
-  faction8,
-];
-//age sysrtem list
-var earlySpaceAge;
-var starExplorationAge;
-var ionicPropultionAge;
-var darkMatterDiscoveryAge;
-var darkMatterResearchAge;
-var darkMatterUtilizationAge;
-var intergalacticTravelAge;
-var intergalacticEmpireAge;
-var ages = [
-  earlySpaceAge,
-  starExplorationAge,
-  ionicPropultionAge,
-  darkMatterDiscoveryAge,
-  darkMatterResearchAge,
-  darkMatterUtilizationAge,
-  intergalacticTravelAge,
-  intergalacticEmpireAge,
-];
-//current selected faction
-factions = 0;
-//font
-let pressStart;
 
 //images
 function preload() {
@@ -103,7 +22,7 @@ function preload() {
   //gPlanets = loadImage("giaPlanets.png");
 
   // populate planets array only after images are loaded
-  planets = [wPlanets, dPlanets, iPlanets, /*gPlanets*/];
+  planets = [wPlanets, dPlanets, iPlanets /*gPlanets*/];
 
   space = loadImage("space.png");
 }
@@ -123,7 +42,7 @@ function draw() {
   background(0);
   //image
   // map
- 
+
   // draw static planets placed at startup
   for (let p of placedPlanets) {
     if (p.img) image(p.img, p.x, p.y);
@@ -142,13 +61,14 @@ function draw() {
   textSize(16);
   fill(255);
   //credits
-  text("game and art by fuzzy_foxf", 10, 750);
+  text("game and art by fuzzy_foxf", 10, 770);
 
   //game info
   text("Points:" + pt, 10, 20);
   text("Points per capital:" + ptpc, 10, 40);
   text("production timer:" + ptpccd, 10, 60);
-  text("year:"+year,10,730)
+  text("year:" + yearWhy, 10, 730);
+  text("age:" + ages, 10,750 )
 
   if (factions == 0) {
     // code to set the selected faction as the current faction
@@ -168,14 +88,13 @@ function draw() {
     if (ptpccd <= 0) {
       pt = pt + ptpc;
       ptpccd = ptpccdm;
-      year = year + 1
+      yearWhy = yearWhy + 1;
       ageCheck();
     }
-
   }
   //planets and map (individual images should be drawn explicitly)
   //year gain
-  
+
   //age progression
   //faction interactions and bonuses
 }
@@ -210,8 +129,12 @@ function mousePressed() {
   ) {
     factions = 3;
   }
-  //planet claiming 
-
+  //planet claiming
+  //cursser is over the screen
+  if (mouseX < 0) mouseX = 0;
+  if (mouseX > width) mouseX = width;
+  if (mouseY < 0) mouseY = 0;
+  if (mouseY > height) mouseY = height;
 }
 
 //faction selection
@@ -252,7 +175,6 @@ function factionSelect() {
 
 //planet randomization
 function planetRandomizer(count) {
-
   count = count || 8;
   placedPlanets = [];
   if (!planets || planets.length === 0) return;
@@ -263,66 +185,68 @@ function planetRandomizer(count) {
     let x = random(220, width - 50);
     let y = random(75, height - 50);
     placedPlanets.push({ img, x, y });
-    //need limeter 
-
-
+    //need limeter
   }
 }
 //the year system and age progression will be based on points and time.
+function starterage(){
+  ages =1
+}
 function progressAge1() {
   // Implementation for age progression based on points and time
-  ages=1
-}
-function progressAge2() {
-
   ages = 2;
 }
-
-function progressAge3() {
-
+function progressAge2() {
   ages = 3;
 }
 
-function progressAge4() {
-
+function progressAge3() {
   ages = 4;
 }
-function progressAge5(){
-  ages =5;
+
+function progressAge4() {
+  ages = 5;
 }
-function progressAge6(){
+function progressAge5() {
   ages = 6;
 }
-function progressAge7(){
-  ages = 7
+function progressAge6() {
+  ages = 7;
 }
-function progressAge8(){
-  ages = 7
+function progressAge7() {
+  ages = 8;
+}
+function progressAge8() {
+  ages = 9;
 }
 //check every 100 frames
-function ageCheck(){
-  if(year=2500){
+function ageCheck() {
+  if (yearWhy=2250){
+    starterage();
+  }
+
+  if (yearWhy = 2500) {
     progressAge1();
   }
-  if (year = 2750) {
+  if (yearWhy = 2750) {
     progressAge2();
   }
-  if (year = 3000) {
+  if (yearWhy = 3000) {
     progressAge3();
   }
-  if (year=3250){
+  if (yearWhy = 3250) {
     progressAge4();
   }
-   if (year = 3500) {
-     progressAge5();
-   }
-   if (year = 3750) {
-     progressAge6();
-   }
-   if (year = 4000) {
-     progressAge7();
-   }
-   if (year = 4250) {
-     progressAge8();
-   }
+  if (yearWhy = 3500) {
+    progressAge5();
+  }
+  if (yearWhy = 375) {
+    progressAge6();
+  }
+  if (yearWhy = 4000) {
+    progressAge7();
+  }
+  if (yearWhy = 4250) {
+    progressAge8();
+  }
 }
