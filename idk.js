@@ -8,10 +8,17 @@ function preload() {
   }
 
   
+  try {
     //factions
     aztecGators = loadImage("aztecGators.png");
-    romanWolfs =loadImage("romanWolfs.png")
-
+  } catch (e) {
+    console.log("aztecGators image not loaded");
+  }
+  try {
+    romanWolfs = loadImage("romanWolfs.png");
+  } catch (e) {
+    console.log("romanWolfs image not loaded");
+  }
 
 
   //planets
@@ -52,6 +59,12 @@ function draw() {
   } else {
     fill(0);
     rect(10, 80, 100, 100);
+  }
+   if (romanWolfs) {
+    image(romanWolfs, 120, 80, 100, 100);
+  } else {
+    fill(0);
+    rect(120, 80, 100, 100);
   }
   //ui
   if (pressStart) {

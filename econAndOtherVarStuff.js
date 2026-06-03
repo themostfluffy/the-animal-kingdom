@@ -49,7 +49,7 @@ var factionsList = [
   notPlaying,
   aztecGators,
   romanWolfs,
-  cartageCrocs,
+  cartageCamels,
   faction4,
   faction5,
   faction6,
