@@ -7,13 +7,12 @@ function preload() {
     console.log("Font not loaded, using default");
   }
 
-  try {
+  
     //factions
     aztecGators = loadImage("aztecGators.png");
-  } catch (e) {
-    console.log("aztecGators image not loaded");
-  }
-  //romanWolfs =loadImage("romanWolfs.png");
+    romanWolfs =loadImage("romanWolfs.png")
+
+
 
   //planets
   wPlanets = loadImage("waterPlanet.png");
@@ -148,7 +147,7 @@ function factionSelect() {
     text("rome", 500, 20);
   }
   if (mouseX > 10 && mouseX < 110 && mouseY > 190 && mouseY < 290) {
-    console.log("cartageCrocs");
+    console.log("cartageCamels");
     text("cartage", 500, 20);
   }
   if (mouseX > 120 && mouseX < 220 && mouseY > 190 && mouseY < 290) {
@@ -189,64 +188,12 @@ function planetRandomizer(count) {
   }
 }
 //the year system and age progression will be based on points and time.
-function starterage(){
-  ages =1
-}
-function progressAge1() {
-  // Implementation for age progression based on points and time
-  ages = 2;
-}
-function progressAge2() {
-  ages = 3;
-}
 
-function progressAge3() {
-  ages = 4;
-}
-
-function progressAge4() {
-  ages = 5;
-}
-function progressAge5() {
-  ages = 6;
-}
-function progressAge6() {
-  ages = 7;
-}
-function progressAge7() {
-  ages = 8;
-}
-function progressAge8() {
-  ages = 9;
-}
 //check every 100 frames
 function ageCheck() {
-  if (yearWhy=2250){
-    starterage();
+  if (yearWhy>=2250){
+    ages=1;
   }
 
-  if (yearWhy = 2500) {
-    progressAge1();
-  }
-  if (yearWhy = 2750) {
-    progressAge2();
-  }
-  if (yearWhy = 3000) {
-    progressAge3();
-  }
-  if (yearWhy = 3250) {
-    progressAge4();
-  }
-  if (yearWhy = 3500) {
-    progressAge5();
-  }
-  if (yearWhy = 375) {
-    progressAge6();
-  }
-  if (yearWhy = 4000) {
-    progressAge7();
-  }
-  if (yearWhy = 4250) {
-    progressAge8();
-  }
+ 
 }

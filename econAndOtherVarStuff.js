@@ -35,7 +35,7 @@ var aztecGators;
 
 var romanWolfs;
 
-var cartageCrocs;
+var cartageCamels;
 //unimplimented factions
 
 var faction4;
@@ -77,6 +77,8 @@ var ages = [
   intergalacticTravelAge,
   intergalacticEmpireAge,
 ];
+//i forgor
+ages=0;
 //current selected faction
 factions = 0;
 //font

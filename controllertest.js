@@ -1,4 +1,4 @@
-let pressStart;
+//controller preset
 let gamepadConnected = false;
 let gamepadIndex = null;
 let gamepadPrevButtons = [];
@@ -7,7 +7,7 @@ let cursorX = 400;
 let cursorY = 300;
 let cursorSpeed = 6;
 let selectedAction = 0;
-let actions = ["Select faction", "Claim planet", "Boost points"];
+
 let statusText = "Connect a gamepad and press any button.";
 
 
