@@ -2,9 +2,9 @@
 var pt = 0;
 //year
 var yearWhy = 2250;
-//points per capital
+//points per capture
 var ptpc = 1;
-//point per capital upgrade cost
+//point per capture upgrade cost
 var ptpcuc = 10;
 
 //point cooldown

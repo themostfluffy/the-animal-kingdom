@@ -98,7 +98,7 @@ function draw() {
   if (factions > 0) {
     ptpccd = ptpccd - 1;
     if (ptpccd <= 0) {
-      pt = pt + ptpc;
+      pt = pt + ptpc+waterPlanets+desertPlanets+icePlanets+gaiaPlanets;
       ptpccd = ptpccdm;
       yearWhy = yearWhy + 1;
       ageCheck();
@@ -142,6 +142,30 @@ function mousePressed() {
     factions = 3;
   }
   //planet claiming
+  if (factions > 0) {
+    for (let p of placedPlanets) {
+      if (
+        mouseX > p.x &&
+        mouseX < p.x + 50 &&
+        mouseY > p.y &&
+        mouseY < p.y + 50
+      ) {
+        // code to claim the planet and add it to the player's resources
+        waterPlanets = waterPlanets + 1;
+        // maybe use a list variable to store the claimed planets and use it in the game logic
+  
+      }else if (
+        mouseX > p.x &&
+        mouseX < p.x + 50 &&
+        mouseY > p.y &&
+        mouseY < p.y + 50
+      ) {
+        // code to claim the planet and add it to the player's resources
+        desertPlanets = desertPlanets + 1;
+        // maybe use a list variable to store the claimed planets and use it in the game logic
+    }
+  }
+}
   //cursser is over the screen
   if (mouseX < 0) mouseX = 0;
   if (mouseX > width) mouseX = width;
