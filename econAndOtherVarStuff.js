@@ -35,7 +35,7 @@ var aztecGators;
 
 var romanWolfs;
 
-var cartageCamels;
+var cartagefoxes;
 //unimplimented factions
 
 var faction4;
@@ -49,7 +49,7 @@ var factionsList = [
   notPlaying,
   aztecGators,
   romanWolfs,
-  cartageCamels,
+  cartagefoxes,
   faction4,
   faction5,
   faction6,

@@ -17,3 +17,12 @@ function preload() {
     console.log("Aztec Gators image not loaded, using placeholder");
     aztecGators = createGraphics(100, 100); // Placeholder graphic
     aztecGators.background(255, 0, 0); // Red background for visibility
+
+    aztecGators.fill(255);
+    aztecGators.textAlign(CENTER, CENTER);
+    aztecGators.text("Aztec Gators", 50, 50);
+  }  
+    #if eror then show error on screen
+    catch (e) {
+      text("error", 10, 10);
+      }

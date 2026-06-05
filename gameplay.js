@@ -78,20 +78,25 @@ function draw() {
   //game info
   text("Points:" + pt, 10, 20);
   text("Points per capital:" + ptpc, 10, 40);
-  text("production timer:" + ptpccd, 10, 60);
+  text("pt production timer:" + ptpccd, 10, 60);
   text("year:" + yearWhy, 10, 730);
   text("age:" + ages, 10,750 )
+  text("planets owned:" + (waterPlanets + desertPlanets + icePlanets + gaiaPlanets), 10, 790);
+  text("water planets:" + waterPlanets, 10, 810);
+  text("desert planets:" + desertPlanets, 10, 830);
+  text("ice planets:" + icePlanets, 10, 850);
+  text("gaia planets:" + gaiaPlanets, 10, 870);
 
   if (factions == 0) {
     // code to set the selected faction as the current faction
     // maybe use list variable to store the selected faction and use it in the game logic
     text("unselected", 500, 20);
   } else if (factions == 1) {
-    text("aztecGators", 500, 20);
+    text("Gators", 500, 20);
   } else if (factions == 2) {
-    text("romanWolfs", 500, 20);
+    text("Wolfs", 500, 20);
   } else if (factions == 3) {
-    text("cartageCrocs", 500, 20);
+    text("foxes", 500, 20);
   }
 
   //point production
@@ -109,6 +114,9 @@ function draw() {
 
   //age progression
   //faction interactions and bonuses
+
+ 
+  foxfactionBonuses();
 }
 
 //game interactions
@@ -151,27 +159,22 @@ function mousePressed() {
         mouseY < p.y + 50
       ) {
         // code to claim the planet and add it to the player's resources
-        waterPlanets = waterPlanets + 1;
+          if (p.img === wPlanets) {
+            waterPlanets = waterPlanets + 1;
+          } else if (p.img === dPlanets) {
+            desertPlanets = desertPlanets + 1;
+          } else if (p.img === iPlanets) {
+            icePlanets = icePlanets + 1;
+          } else if (p.img === gPlanets) {
+            gaiaPlanets = gaiaPlanets + 1;
+          }
         // maybe use a list variable to store the claimed planets and use it in the game logic
   
-      }else if (
-        mouseX > p.x &&
-        mouseX < p.x + 50 &&
-        mouseY > p.y &&
-        mouseY < p.y + 50
-      ) {
-        // code to claim the planet and add it to the player's resources
-        desertPlanets = desertPlanets + 1;
-        // maybe use a list variable to store the claimed planets and use it in the game logic
+      }
     }
   }
 }
-  //cursser is over the screen
-  if (mouseX < 0) mouseX = 0;
-  if (mouseX > width) mouseX = width;
-  if (mouseY < 0) mouseY = 0;
-  if (mouseY > height) mouseY = height;
-}
+
 
 //faction selection
 function factionSelect() {
@@ -232,5 +235,4 @@ function ageCheck() {
     ages=1;
   }
 
- 
 }
