@@ -59,6 +59,7 @@ function draw() {
   } else {
     fill(0);
     rect(10, 80, 100, 100);
+  
   }
    if (romanWolfs) {
     image(romanWolfs, 120, 80, 100, 100);
@@ -122,6 +123,7 @@ function draw() {
 //game interactions
 function mousePressed() {
   //permenet faction selection
+
   if (
     mouseX > 10 &&
     mouseX < 110 &&
@@ -159,21 +161,23 @@ function mousePressed() {
         mouseY < p.y + 50
       ) {
         // code to claim the planet and add it to the player's resources
-          if (p.img === wPlanets) {
-            waterPlanets = waterPlanets + 1;
-          } else if (p.img === dPlanets) {
-            desertPlanets = desertPlanets + 1;
-          } else if (p.img === iPlanets) {
-            icePlanets = icePlanets + 1;
-          } else if (p.img === gPlanets) {
-            gaiaPlanets = gaiaPlanets + 1;
-          }
+        if (p.img === wPlanets) {
+          waterPlanets = waterPlanets + 1;
+        } else if (p.img === dPlanets) {
+          desertPlanets = desertPlanets + 1;
+        } else if (p.img === iPlanets) {
+          icePlanets = icePlanets + 1;
+        } else if (p.img === gPlanets) {
+          gaiaPlanets = gaiaPlanets + 1;
+        }
+        
         // maybe use a list variable to store the claimed planets and use it in the game logic
-  
       }
     }
   }
 }
+
+
 
 
 //faction selection

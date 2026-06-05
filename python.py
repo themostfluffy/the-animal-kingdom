@@ -22,7 +22,14 @@ function preload() {
     aztecGators.textAlign(CENTER, CENTER);
     aztecGators.text("Aztec Gators", 50, 50);
   }  
-    #if eror then show error on screen
-    catch (e) {
-      text("error", 10, 10);
-      }
+  try {
+    romanWolfs = loadImage("roman_wolfs.png");
+  }catch (e) {
+    console.log("Roman Wolfs image not loaded, using placeholder");
+    romanWolfs = createGraphics(100, 100); // Placeholder graphic
+    romanWolfs.background(0, 255, 0); // Green background for visibility
+
+    romanWolfs.fill(255);
+    romanWolfs.textAlign(CENTER, CENTER);
+    romanWolfs.text("Roman Wolfs", 50, 50);
+  }
