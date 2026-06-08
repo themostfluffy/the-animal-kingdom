@@ -39,6 +39,7 @@ function setup() {
   // generate static planet placements once
   planetRandomizer(30);
 }
+//
 
 //draw the ui and gameplay
 function draw() {
