@@ -7,19 +7,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   </head>
   <body>
-    <div id="status" style="font-size: 20px; font-family: 'PressStart2P-Regular', monospace; color: red; padding: 10px">
+    <div
+      id="status"
+      style="
+        font-size: 20px;
+        font-family: &quot;PressStart2P-Regular&quot;, monospace;
+        color: red;
+        padding: 10px;
+      "
+    >
       JS LOADING...
     </div>
-    
-    <a href=tutorial.html ></a>
-    <script src="gameplay.js"></script>
+    <div
+      id="errors"
+      style="
+        font-size: 14px;
+        color: red;
+        padding: 10px;
+        white-space: pre-wrap;
+        font-family: monospace;
+      "
+    ></div>
+
+    <a href="tutorial.html"></a>
+
+   
+
     <script src="econAndOtherVarStuff.js"></script>
-    <script src="python.py"></script>
-  
+    <script src="gameplay.js"></script>
+<!--make it under the canvas--> 
+<divclass="footer" style="position: fixed; bottom: 0; width: 100%; text-align: center; background-color: #f1f1f1; padding: 10px;"
+    >
+      A rts - by f.f.f
 
-
-    <script>
-      document.getElementById("status").innerHTML = "JS started, if no show its an error :P";
-    </script>
   </body>
 </html>

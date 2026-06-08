@@ -78,8 +78,8 @@ var ages = [
   intergalacticEmpireAge,
 ];
 //i forgor
-ages=0;
+ages = 0;
 //current selected faction
-factions = 0;
+var factions = 0;
 //font
 let pressStart;

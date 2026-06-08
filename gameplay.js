@@ -1,4 +1,3 @@
-
 //images
 function preload() {
   try {
@@ -7,7 +6,6 @@ function preload() {
     console.log("Font not loaded, using default");
   }
 
-  
   try {
     //factions
     aztecGators = loadImage("aztecGators.png");
@@ -19,7 +17,6 @@ function preload() {
   } catch (e) {
     console.log("romanWolfs image not loaded");
   }
-
 
   //planets
   wPlanets = loadImage("waterPlanet.png");
@@ -46,6 +43,23 @@ function setup() {
 //draw the ui and gameplay
 function draw() {
   background(0);
+
+  // FACTION DISPLAY - EARLY SO IT ALWAYS SHOWS
+  fill(255, 0, 0); // Red background
+  rect(400, 10, 300, 50);
+  fill(255); // White text
+  textSize(20);
+  if (factions == 0) {
+    text("SELECT FACTION", 420, 40);
+  } else if (factions == 1) {
+    text("GATORS SELECTED", 420, 40);
+  } else if (factions == 2) {
+    text("WOLFS SELECTED", 420, 40);
+  } else if (factions == 3) {
+    text("FOXES SELECTED", 420, 40);
+  }
+  textSize(16);
+
   //image
   // map
 
@@ -59,9 +73,8 @@ function draw() {
   } else {
     fill(0);
     rect(10, 80, 100, 100);
-  
   }
-   if (romanWolfs) {
+  if (romanWolfs) {
     image(romanWolfs, 120, 80, 100, 100);
   } else {
     fill(0);
@@ -81,30 +94,23 @@ function draw() {
   text("Points per capital:" + ptpc, 10, 40);
   text("pt production timer:" + ptpccd, 10, 60);
   text("year:" + yearWhy, 10, 730);
-  text("age:" + ages, 10,750 )
-  text("planets owned:" + (waterPlanets + desertPlanets + icePlanets + gaiaPlanets), 10, 790);
+  text("age:" + ages, 10, 750);
+  text(
+    "planets owned:" +
+      (waterPlanets + desertPlanets + icePlanets + gaiaPlanets),
+    10,
+    790,
+  );
   text("water planets:" + waterPlanets, 10, 810);
   text("desert planets:" + desertPlanets, 10, 830);
   text("ice planets:" + icePlanets, 10, 850);
   text("gaia planets:" + gaiaPlanets, 10, 870);
 
-  if (factions == 0) {
-    // code to set the selected faction as the current faction
-    // maybe use list variable to store the selected faction and use it in the game logic
-    text("unselected", 500, 20);
-  } else if (factions == 1) {
-    text("Gators", 500, 20);
-  } else if (factions == 2) {
-    text("Wolfs", 500, 20);
-  } else if (factions == 3) {
-    text("foxes", 500, 20);
-  }
-
   //point production
   if (factions > 0) {
     ptpccd = ptpccd - 1;
     if (ptpccd <= 0) {
-      pt = pt + ptpc+waterPlanets+desertPlanets+icePlanets+gaiaPlanets;
+      pt = pt + ptpc + waterPlanets + desertPlanets + icePlanets + gaiaPlanets;
       ptpccd = ptpccdm;
       yearWhy = yearWhy + 1;
       ageCheck();
@@ -116,13 +122,13 @@ function draw() {
   //age progression
   //faction interactions and bonuses
 
- 
-  foxfactionBonuses();
+  //foxfactionBonuses();  // TODO: define this function
 }
 
 //game interactions
 function mousePressed() {
   //permenet faction selection
+  console.log("Click at:", mouseX, mouseY, "Factions:", factions);
 
   if (
     mouseX > 10 &&
@@ -131,6 +137,7 @@ function mousePressed() {
     mouseY < 180 &&
     factions == 0
   ) {
+    console.log("Selected faction 1");
     factions = 1;
   }
   if (
@@ -170,15 +177,12 @@ function mousePressed() {
         } else if (p.img === gPlanets) {
           gaiaPlanets = gaiaPlanets + 1;
         }
-        
+
         // maybe use a list variable to store the claimed planets and use it in the game logic
       }
     }
   }
 }
-
-
-
 
 //faction selection
 function factionSelect() {
@@ -235,8 +239,7 @@ function planetRandomizer(count) {
 
 //check every 100 frames
 function ageCheck() {
-  if (yearWhy>=2250){
-    ages=1;
+  if (yearWhy >= 2250) {
+    ages = 1;
   }
-
 }
