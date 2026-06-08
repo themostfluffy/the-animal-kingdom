@@ -45,8 +45,8 @@ function draw() {
   background(0);
 
   // FACTION DISPLAY - EARLY SO IT ALWAYS SHOWS
-  fill(255, 0, 0); // Red background
-  rect(400, 10, 300, 50);
+  fill(50,50, 50); // Red background
+  rect(400, 10, 325, 50);
   fill(255); // White text
   textSize(20);
   if (factions == 0) {
